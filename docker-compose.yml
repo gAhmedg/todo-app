@@ -8,7 +8,8 @@ services:
     environment:
       POSTGRES_PASSWORD: 1234pass
     volumes:
-      - ./postgres:/var/lib/postgresql/data
+      - db-volume:/var/lib/postgresql/data 
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     networks:
       - todos-network
 
@@ -44,3 +45,6 @@ services:
 
 networks:
   todos-network:
+  
+volumes:
+  db-volume:  
