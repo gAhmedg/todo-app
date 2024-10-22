@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   postgres:
+    container_name: postgres
     image: postgres:12-alpine
     ports:
       - "5432:5432"
@@ -36,7 +37,7 @@ services:
       context: ./client
       dockerfile: Dockerfile
     ports:
-      - "3001:3000"
+      - "3000:3000"
     stdin_open: true
     depends_on:
       - backend
